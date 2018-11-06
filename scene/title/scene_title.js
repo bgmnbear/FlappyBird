@@ -5,6 +5,9 @@ class Pipes {
         this.pipeSpace = 150
         this.管子横向间距 = 150
         this.columsOfPipe = 3
+        // 当前 pipe 的 x/y 坐标
+        this.currentPositionY = -1
+        this.currentPositionX = -1
         for (var i = 0; i < this.columsOfPipe; i++) {
             var p1 = GuaImage.new(game, 'pipe_down')
             p1.flipY = true
@@ -40,6 +43,12 @@ class Pipes {
                 p2.x += this.管子横向间距 * this.columsOfPipe
                 this.resetPipesPosition(p1, p2)
             }
+            // 碰撞检测
+            if (p1.x == 100) {
+              this.currentPositionY = p1.y
+            }
+            this.currentPositionX = p1.x
+            log(this.currentPositionX)
         }
     }
     draw() {
@@ -71,6 +80,8 @@ class SceneTitle extends GuaScene {
         // bg
         var bg = GuaImage.new(game, 'bg')
         this.addElement(bg)
+        // 加入分数
+        this.score = 0
         // 加入水管
         this.pipe = Pipes.new(game)
         this.addElement(this.pipe)
@@ -110,6 +121,18 @@ class SceneTitle extends GuaScene {
             var g = this.grounds[i]
             g.x += offset
         }
+        // 碰撞检测
+        if (this.pipe.currentPositionX != -1 && this.pipe.currentPositionY != -1) {
+        if (this.b.y >= 450 || (this.b.y > (this.pipe.currentPositionY+320+150) || this.b.y < this.pipe.currentPositionY+320)) {
+            var end = SceneEnd.new(this.game)
+            this.game.replaceScene(end)
+        }
+        if (100 == this.pipe.currentPositionX) {
+            this.score += 10
+            log('score', this.score)
+        }
+        }
+        log('pipe y', this.pipe.currentPositionY)
     }
     setupInputs() {
         var self = this
