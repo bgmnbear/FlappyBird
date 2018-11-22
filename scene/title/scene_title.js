@@ -72,7 +72,6 @@ class Pipes {
             }
             if (p1.x == 100) {
               this.score()
-              log(window.score)
             }
         }
     }
@@ -96,6 +95,22 @@ class Pipes {
         }
     }
 }
+class Score {
+  constructor(game) {
+    this.game = game
+    this.score = window.score
+  }
+  update() {
+    this.score = window.score
+  }
+  static new(game) {
+      return new this(game)
+  }
+  draw() {
+    var ctx = document.getElementById('id-canvas').getContext('2d');
+    ctx.fillText(this.score, 10, 50);
+  }
+}
 class SceneTitle extends GuaScene {
     constructor(game) {
         super(game)
@@ -107,6 +122,8 @@ class SceneTitle extends GuaScene {
         this.addElement(bg)
         // 加入分数
         window.score = 0
+        this.score = Score.new(game)
+        this.addElement(this.score)
         // 加入水管
         this.pipe = Pipes.new(game)
         this.addElement(this.pipe)
