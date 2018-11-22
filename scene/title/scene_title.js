@@ -147,8 +147,9 @@ class SceneTitle extends GuaScene {
             g.x += offset
         }
         // 碰撞检测
-        var hit = this.pipe.collide(this.b)
-        if (hit) {
+        var hitPipe = this.pipe.collide(this.b)
+        var hitGround = (this.b.y > 410)
+        if (hitPipe || hitGround) {
           var end = SceneEnd.new(this.game)
           this.game.replaceScene(end)
         }
