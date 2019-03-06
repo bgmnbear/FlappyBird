@@ -1,2 +1,4 @@
 # FlappyBird
-From 萧大B站直播
+
+# gif演示
+![image](https://raw.githubusercontent.com/bgmnbear/FlappyBird/master/images/flappy_bird.gif)
