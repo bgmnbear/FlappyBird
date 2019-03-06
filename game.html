@@ -8,15 +8,15 @@
                 border: 1px black solid;
             }
         </style>
-        <!-- gua game 相关文件 -->
-        <script src='guagame/utils.js'></script>
-        <!-- <script src='guagame/mouse.js'></script> -->
-        <script src='guagame/gua_game.js'></script>
-        <script src='guagame/gua_scene.js'></script>
-        <script src='guagame/gua_image.js'></script>
-        <script src='guagame/gua_label.js'></script>
-        <script src='guagame/gua_animation.js'></script>
-        <script src='guagame/gua_particle_system.js'></script>
+        <!-- My game 相关文件 -->
+        <script src='mygame/utils.js'></script>
+        <!-- <script src='Mygame/mouse.js'></script> -->
+        <script src='mygame/game.js'></script>
+        <script src='mygame/scene.js'></script>
+        <script src='mygame/image.js'></script>
+        <script src='mygame/label.js'></script>
+        <script src='mygame/animation.js'></script>
+        <script src='mygame/particle_system.js'></script>
         <!-- 场景文件 -->
         <script src='scene/main/paddle.js'></script>
         <script src='scene/main/ball.js'></script>
@@ -36,7 +36,7 @@
         <div class="">
             <!-- <textarea id="id-text-log" rows="20" cols="50"></textarea> -->
         </div>
-        <div class="gua-controls">
+        <div class="My-controls">
         </div>
         <script src=main.js></script>
         <script>
@@ -51,19 +51,19 @@
             var templateControl = function(key,item) {
                 var t = `<div class="">
                     <label>
-                        <input class="gua-auto-slider" type="range"
+                        <input class="My-auto-slider" type="range"
                             min='1'
                             max='300'
                             value="${item.value}"
                             data-value='config.${key}'>
-                        ${item._comment}: <span class="gua-label"></span>
+                        ${item._comment}: <span class="My-label"></span>
                     </label>
                 </div>`
                 return t
             }
 
             var insertControls = function() {
-                var div = e('.gua-controls')
+                var div = e('.My-controls')
                 var keys = Object.keys(config)
                 for (var k of keys) {
                     var item = config[k]
@@ -73,13 +73,13 @@
             }
 
             var bindEvents = function() {
-                bindAll('.gua-auto-slider', 'input', function(event) {
+                bindAll('.My-auto-slider', 'input', function(event) {
                     var target = event.target
                     var bindVar = target.dataset.value
                     var v = target.value
                     eval(bindVar + '.value =' + v)
                     //
-                    var label = target.closest('label').querySelector('.gua-label')
+                    var label = target.closest('label').querySelector('.My-label')
                     label.innerText = v
                 })
             }

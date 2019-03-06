@@ -1,4 +1,4 @@
-class GuaImage {
+class Image {
     constructor(game, name) {
         this.game = game
         this.texture = game.textureByName(name)
@@ -9,13 +9,18 @@ class GuaImage {
         //
         this.flipY = false
         this.rotation = 0
+        //
+        this.name = name
+        this.alive = true
     }
     static new(game, name) {
         var i = new this(game, name)
         return i
     }
     draw() {
-        this.game.drawImage(this)
+        if(this.alive) {
+            this.game.drawImage(this)
+        }
     }
     update() {
 

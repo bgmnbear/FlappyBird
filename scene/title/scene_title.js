@@ -8,10 +8,10 @@ class Pipes {
         this.currentPipeDown = null
         this.currentPipeUp = null
         for (var i = 0; i < this.columsOfPipe; i++) {
-            var p1 = GuaImage.new(game, 'pipe_down')
+            var p1 = Image.new(game, 'pipe_down')
             p1.flipY = true
             p1.x = 500 + i * this.管子横向间距
-            var p2 = GuaImage.new(game, 'pipe_up')
+            var p2 = Image.new(game, 'pipe_up')
             p2.x = p1.x
             this.resetPipesPosition(p1, p2)
             this.pipes.push(p1)
@@ -111,14 +111,14 @@ class Score {
     ctx.fillText(this.score, 10, 50);
   }
 }
-class SceneTitle extends GuaScene {
+class SceneTitle extends Scene {
     constructor(game) {
         super(game)
-        // var label = GuaLabel.new(game, 'hello from gua')
+        // var label = Label.new(game, 'hello from ')
         // this.addElement(label)
 
         // bg
-        var bg = GuaImage.new(game, 'bg')
+        var bg = Image.new(game, 'bg')
         this.addElement(bg)
         // 加入分数
         window.score = 0
@@ -130,7 +130,7 @@ class SceneTitle extends GuaScene {
         // 循环移动的地面
         this.grounds = []
         for (var i = 0; i < 30; i++) {
-            var g = GuaImage.new(game, 'ground')
+            var g = Image.new(game, 'ground')
             g.x = i * 15
             g.y = 450
             this.addElement(g)
@@ -139,7 +139,7 @@ class SceneTitle extends GuaScene {
         this.skipCount = 4
         // bird
         this.birdSpeed = 2
-        var b = GuaAnimation.new(game)
+        var b = Animation.new(game)
         b.x = 100
         b.y = 180
         this.b = b

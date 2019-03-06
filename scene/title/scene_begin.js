@@ -1,4 +1,4 @@
-class SceneBegin extends GuaScene {
+class SceneBegin extends Scene {
     constructor(game) {
         super(game)
         game.registerAction('j', function(){

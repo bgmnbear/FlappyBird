@@ -1,4 +1,4 @@
-class GuaAnimation {
+class Animation {
     constructor(game) {
         this.game = game
         // 为了省事， 在这里 hard code 一套动画

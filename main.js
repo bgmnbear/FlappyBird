@@ -43,7 +43,7 @@ var __main = function() {
         idle2: 'img/bird0_1.png',
         idle3: 'img/bird0_2.png',
     }
-    var game = GuaGame.instance(30, images, function(g) {
+    var game = Game.instance(30, images, function(g) {
         // var s = Scene.new(g)
         var s = SceneBegin.new(g)
         g.runWithScene(s)

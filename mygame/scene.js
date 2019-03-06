@@ -1,4 +1,4 @@
-class GuaScene {
+class Scene {
     constructor(game) {
         this.game = game
         this.debugModeEnabled = true

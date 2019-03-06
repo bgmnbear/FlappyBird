@@ -1,4 +1,4 @@
-class Bullet extends GuaImage {
+class Bullet extends Image {
     constructor(game) {
         super(game, 'bullet')
         this.setup()
@@ -11,7 +11,7 @@ class Bullet extends GuaImage {
         this.y -= this.speed
     }
 }
-class Player extends GuaImage {
+class Player extends Image {
     constructor(game) {
         super(game, 'player')
         this.setup()
@@ -56,7 +56,7 @@ const randomBetween = function(start, end) {
     return Math.floor(n + start)
 }
 
-class Enemy extends GuaImage {
+class Enemy extends Image {
     constructor(game) {
         var type = randomBetween(0, 4)
         var name = 'enemy' + type
@@ -76,7 +76,7 @@ class Enemy extends GuaImage {
     }
 }
 
-class Cloud extends GuaImage {
+class Cloud extends Image {
     constructor(game) {
         super(game, 'cloud')
         this.setup()
@@ -94,7 +94,7 @@ class Cloud extends GuaImage {
     }
 }
 
-class Scene extends GuaScene {
+class Scene extends Scene {
     constructor(game) {
         super(game)
         this.setup()
@@ -103,10 +103,10 @@ class Scene extends GuaScene {
     setup() {
         var game = this.game
         this.numberOfEnemies = 10
-        this.bg = GuaImage.new(game, 'sky')
+        this.bg = Image.new(game, 'sky')
         this.cloud = Cloud.new(game, 'cloud')
 
-        // this.player = GuaImage.new(game, 'player')
+        // this.player = Image.new(game, 'player')
         // this.player.x = 100
         // this.player.y = 150
         this.player = Player.new(game)
@@ -119,7 +119,7 @@ class Scene extends GuaScene {
         //
         this.addEnemies()
         // add particles
-        var ps = GuaParticleSystem.new(this.game)
+        var ps = ParticleSystem.new(this.game)
         this.addElement(ps)
     }
     addEnemies() {

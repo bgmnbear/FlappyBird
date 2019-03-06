@@ -1,5 +1,5 @@
-// 瓜
-class GuaGame {
+// Game
+class Game {
     constructor(fps, images, runCallback) {
         window.fps = fps
         this.images = images
@@ -25,7 +25,7 @@ class GuaGame {
         return this.i
     }
     drawImage(img) {
-        // img 是一个 GuaImage
+        // img 是一个 Image
         this.context.drawImage(img.texture, img.x, img.y)
     }
     // update

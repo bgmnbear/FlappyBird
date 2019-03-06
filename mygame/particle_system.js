@@ -1,5 +1,5 @@
 
-class GuaParticle extends GuaImage {
+class Particle extends Image {
     constructor(game) {
         super(game, 'fire')
         this.setup()
@@ -23,7 +23,7 @@ class GuaParticle extends GuaImage {
     }
 }
 
-class GuaParticleSystem {
+class ParticleSystem {
     constructor(game) {
         this.game = game
         this.setup()
@@ -42,7 +42,7 @@ class GuaParticleSystem {
         this.duration--
         // 添加小火花
         if (this.particles.length < this.numberOfParticles) {
-            var p = GuaParticle.new(this.game)
+            var p = Particle.new(this.game)
             // 设置初始化坐标
             var s = 2
             var vx = randomBetween(-s, s)
